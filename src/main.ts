@@ -14,4 +14,4 @@ const renderAllCandy = () => {
   `)
   .join("");
 };
-renderAllCandy();
+// renderAllCandy();
