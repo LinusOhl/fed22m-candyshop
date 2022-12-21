@@ -22,3 +22,15 @@
   color: crimson;
   font-weight: bold;
 }
+.btn-addToCart {
+  background-color: white;
+  color: crimson;
+  border: 2px solid crimson;
+  outline: none;
+  cursor: pointer;
+  transition: all .2s;
+}
+.btn-addToCart:hover {
+  background-color: crimson;
+  color: white;
+}
