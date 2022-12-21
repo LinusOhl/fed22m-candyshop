@@ -2,16 +2,18 @@ import './style.css'
 import { fetchAllCandy } from "./api"
 import { ICandy } from "./interfaces"
 
+// get ul-element from DOM
 const candyListEl = document.querySelector("#candy-list")!;
 
+// save data of products from api as an array
 const temp = await fetchAllCandy();
-const data: ICandy[] = temp.data;
-console.log(data);
+const products: ICandy[] = temp.data;
 
+// renders all products as cards on the DOM
 const renderAllCandy = () => {
   const base_url = "https://www.bortakvall.se";
 
-  candyListEl.innerHTML = data.map(candy => `
+  candyListEl.innerHTML = products.map(candy => `
     <li class="candy-card">
       <img src="${base_url + candy.images.thumbnail}" alt="${candy.name}">
       <p class="candy-name" id="candy-name">${candy.name}</p>
