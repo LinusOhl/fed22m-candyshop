@@ -1,4 +1,44 @@
-:root {
+body {
+  margin: 0;
+}
+
+.hide {
+  
+}
+
+.mainHeader {
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: Roboto;
+  border: 2px solid black;
+  margin: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#underRubrik {
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-family: Roboto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: 2px solid black;
+  margin: 0;
+}
+
+#candy {
+  height: 100vh;
+  display: block;
+  border: 2px solid black;
+  margin: auto;
+  padding: 0;
+}
+
+
+/* :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
@@ -94,4 +134,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */

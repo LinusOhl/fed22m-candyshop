@@ -5,30 +5,38 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CandyShop</title>
-    <link rel="stylesheet" href="./src/css/candyCards.css">
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&family=Roboto:wght@100;300;400;700&family=Silkscreen&display=swap" rel="stylesheet">
+
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="src/style.css">
+    <link rel="stylesheet" href="src/css/candyCards.css">
   </head>
   
   <body>
     <header>
-      <h1>candyshop</h1>
+      <h1 class="mainHeader" id="header">candyshop</h1>
     </header>
  
     <!--  VARUKORG  -->
-    <div>
+    <div class="hide" id="varukorg">
 
       <!-- Lista varukorgen -->
-      <ul>
+      <ul id="itemsVarukorg">
       </ul>
 
       <!-- KNAPP TILL checkout.html -->
-      <button><a href="./checkout.html">Gå till kassan</a></button>
+      <button id="GoToCheckout"><a href="./checkout.html">Gå till kassan</a></button>
 
     </div>
 
     <main>
-      <div>
+      <div id="allCandyDisplay">
 
-        <h2>Godissorter</h2>
+        <h2 id="underRubrik">Godissorter</h2>
 
         <!-- DISPLAY OF CANDY -->
         <ul class="candy-list" id="candy-list"></ul>
