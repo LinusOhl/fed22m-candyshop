@@ -16,7 +16,7 @@ const renderAllCandy = () => {
       <img src="${base_url + candy.images.thumbnail}" alt="${candy.name}">
       <p class="candy-name" id="candy-name">${candy.name}</p>
       <p class="candy-price" id="candy-price">${candy.price}kr</p>
-      <button id="btn-addToCart">Add to cart</button>
+      <button class="btn-addToCart" id="btn-addToCart">Add to cart</button>
     </li>
   `)
   .join("");
