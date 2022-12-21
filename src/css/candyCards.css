@@ -1,8 +1,22 @@
 .candy-list {
-
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 .candy-card {
-  background-color: gray;
+  padding: 1rem;
+  background-color: white;
+  color: black;
   text-align: center;
+  border-radius: 10px;
+  box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.5);
+}
+.candy-name {
+  color: crimson;
+  font-weight: bold;
 }
