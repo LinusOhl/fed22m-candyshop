@@ -3,18 +3,22 @@
   z-index: 1;
   height: 100%;
   width: 100vw;
+  font-family: "Poppins", sans-serif;
   background-color: rgba(0, 0, 0, 0.2);
 }
 .lightbox-content {
   position: relative;
   padding: 1rem;
   margin: auto;
-  width: fit-content;
+  max-width: 50%;
   display: flex;
   flex-direction: column;
   text-align: center;
   background-color: white;
   border-radius: 10px;
+}
+.lightbox-content img {
+  max-width: 50%;
 }
 
 .hide {
