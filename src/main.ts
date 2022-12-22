@@ -24,3 +24,21 @@ const renderAllCandy = () => {
   .join("");
 };
 renderAllCandy();
+
+// clicking on img of candy opens a lightbox with more info of clicked candy
+candyListEl.addEventListener("click", e => {
+  let target = e.target as HTMLImageElement;
+
+  if (target.tagName === "IMG") {
+    (document.querySelector(".lightbox") as HTMLElement).classList.remove("hide");
+  }
+});
+
+// clicking outside of lightbox (background) closes the lightbox
+document.querySelector(".lightbox")?.addEventListener("click", e => {
+  let target = e.target as HTMLElement;
+
+  if (target.className === "lightbox") {
+    target.classList.add("hide");
+  }
+});
