@@ -7,34 +7,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Candyshop checkout</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&family=Roboto:wght@100;300;400;700&family=Silkscreen&display=swap" rel="stylesheet">
      <!-- stylesheet -->
-     <link rel="stylesheet" href="src/style.css">
-  </head>
+     <link rel="stylesheet" href="./checkout.css">
+  
 </head>
 <body>
-    <header>Candyshop</header>
+    <header id="checkoutHeader">Candyshop</header>
     <main>
+    <div id="wholeCheckout">
         <!-- VARUKORGSSAMMANSTÄLLNING -->
-        <div>
+        <div class="shoppingCart" id="checkoutCart">
+            <p id="finalCheckout">Checkout</p>
             <ul></ul>
         </div>
 
         <!-- BESTÄLLNINGSFORMULÄR -->
-        <div>
+        <div class="shoppingCart" id="orderInfo">
+            <p id="orderInfoHeader">Order information</p>
            <form action="">
-            <input type="text">
-            <input type="text">
-            <input type="text">
-            <input type="text">
-            <input type="text">
-            <input type="text">
+            <label class="lbl" for="fname">First Name</label>
+            <input class="info" type="text" placeholder="Your first name.." required>
+            <label class="lbl" for="fname">Last Name</label>
+            <input class="info" type="text" placeholder="Your last name.." required>
+            <label class="lbl" for="fname">Adress</label>
+            <input class="info" type="text" placeholder="Your adress.." required>
+            <label class="lbl" for="fname">Postal Code</label>
+            <input class="info" type="text" placeholder="Your postal code.." required>
+            <label class="lbl" for="fname">Email</label>
+            <input class="info" type="text" placeholder="Your email adress.." required>
+            <label class="lbl" for="fname">Phone number</label>
+            <input class="info" type="text">
            </form>
-           <button>BESTÄLL</button>
+           <button id="orderBtn">BESTÄLL</button>
         </div>
 
-        <!-- ORDER CONFIRMATION -->
-        <div></div>
-
+    </div>
+      <!-- ORDER CONFIRMATION -->
+      <div class="hide" id="orderConf">
+        <p id="orderConfirmation"> <span id="orderNumber">0</span> </p>
+      </div>
     </main>
 </body>
 </html>
