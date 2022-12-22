@@ -27,10 +27,20 @@ renderAllCandy();
 
 // clicking on img of candy opens a lightbox with more info of clicked candy
 candyListEl.addEventListener("click", e => {
+  const base_url = "https://www.bortakvall.se";
   let target = e.target as HTMLImageElement;
 
   if (target.tagName === "IMG") {
-    (document.querySelector(".lightbox") as HTMLElement).classList.remove("hide");
+    for (let i = 0; i < products.length; i++) {
+      if (products[i].name === target.alt) {
+        (document.querySelector("#lightbox-img") as HTMLImageElement).src = base_url + products[i].images.large;
+        (document.querySelector("#lightbox-name") as HTMLParagraphElement).innerText = products[i].name;
+        (document.querySelector("#lightbox-desc") as HTMLParagraphElement).innerHTML = products[i].description;
+        (document.querySelector("#lightbox-price") as HTMLParagraphElement).innerText = `
+          ${products[i].price.toString()}kr`;
+        (document.querySelector(".lightbox") as HTMLElement).classList.remove("hide");
+      }
+    }
   }
 });
 
