@@ -24,9 +24,6 @@
 .hide {
   display: none;
 }
-.unhide {
-  display: block;
-}
 
 @media (max-width: 480px) {
   .lightbox-content {
