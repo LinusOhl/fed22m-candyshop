@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/5ce0b4ec7f.js" crossorigin="anonymous"></script>
     <title>CandyShop</title>
 
     <!-- fonts -->
@@ -17,22 +18,17 @@
   </head>
   
   <body>
-    <header>
+    <header class="wholeHeader">
+      
       <h1 class="mainHeader" id="header">candyshop</h1>
+
+      <!-- VARUKORGEN -->
+      <div class="cart-box"><i class="fa-solid fa-cart-shopping fa-2x"></i></div>
+      <div class="whole-cart"></div>
+
     </header>
  
-    <!--  VARUKORG  -->
-    <div class="hide" id="varukorg">
-
-      <!-- Lista varukorgen -->
-      <ul id="itemsVarukorg">
-      </ul>
-
-      <!-- KNAPP TILL checkout.html -->
-      <button id="GoToCheckout"><a href="./checkout.html">Gå till kassan</a></button>
-
-    </div>
-
+    
     <main>
       <div id="allCandyDisplay">
 
