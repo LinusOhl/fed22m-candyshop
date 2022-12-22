@@ -15,16 +15,31 @@
     <!-- stylesheet -->
     <link rel="stylesheet" href="src/style.css">
     <link rel="stylesheet" href="src/css/candyCards.css">
+    <link rel="stylesheet" href="src/css/lightbox.css">
     <link rel="stylesheet" href="src/cart.css">
   </head>
   
   <body>
+    <div class="lightbox hide">
+      <div class="lightbox-content">
+        <img src="#" alt="candy" id="lightbox-img">
+        <div>
+          <p class="candy-name" id="lightbox-name">Candy</p>
+          <p id="lightbox-desc">Descirption</p>
+          <p class="candy-price" id="lightbox-price">10kr</p>
+        </div>
+      </div>
+    </div>
+
     <header class="wholeHeader">
       
       <h1 class="mainHeader" id="header">candyshop</h1>
 
       <!-- VARUKORGEN -->
       <div class="cart-box"><i class="fa-solid fa-cart-shopping fa-2x"></i></div>
+      <div class="whole-cart">
+        <button id="GoToCheckout"><a href="./checkout.html">Gå till kassan</a></button>
+      </div>
 
       <div id="cartModal" class="cart-modal">
         <div class="cart-modal-content">
