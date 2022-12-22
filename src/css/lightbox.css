@@ -12,8 +12,8 @@
 .lightbox-content {
   position: relative;
   padding: 1rem;
-  margin: auto;
-  max-width: 75%;
+  margin: 10%;
+  max-width: fit-content;
   display: flex;
   flex-direction: row;
   text-align: center;
