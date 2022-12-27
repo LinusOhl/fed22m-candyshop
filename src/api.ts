@@ -24,6 +24,8 @@ export const createOrder = async (newOrder: IOrder) => {
 
   if (!response.ok) {
     throw new Error(`${response.status} ${response.statusText}`);
+  } else {
+    console.log(`${response.status} ${response.statusText}`);
   }
 
   return (await response.json()) as IOrder;
