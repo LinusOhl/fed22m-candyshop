@@ -28,5 +28,7 @@ export const createOrder = async (newOrder: IOrder) => {
     console.log(`${response.status} ${response.statusText}`);
   }
 
+  console.log(response.json());
+
   return (await response.json()) as IOrder;
 };
