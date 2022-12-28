@@ -10,6 +10,7 @@ const customerAddress = document.querySelector("#address") as HTMLInputElement;
 const customerPostcode = document.querySelector("#postcode") as HTMLInputElement;
 const customerCity = document.querySelector("#city") as HTMLInputElement;
 const customerEmail = document.querySelector("#email") as HTMLInputElement;
+const customerPhone = document.querySelector("#phone") as HTMLInputElement;
 
 orderForm.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -37,11 +38,26 @@ orderForm.addEventListener("submit", async (e) => {
     customer_postcode: customerPostcode.value,
     customer_city: customerCity.value,
     customer_email: customerEmail.value,
+    customer_phone: customerPhone.value,
     order_total: totalPrice,
     order_items: cartList
   };
 
-  console.log(newOrder);
+  const orderDetails = await createOrder(newOrder);
+  console.log(orderDetails.status);
 
-  await createOrder(newOrder);
+  const orderConfirmContainer = document.querySelector("#orderConfirmation-container") as HTMLElement;
+  const orderConfirmText = document.querySelector("#orderConfirmation-text") as HTMLParagraphElement;
+
+  if (orderDetails.status === "success") {
+    orderConfirmContainer.classList.add("orderSuccess-container");
+    orderConfirmText.innerText = `
+      Thank you for your order! Your order-number is: ${orderDetails.data.id}.
+    `;
+  } else {
+    orderConfirmContainer.classList.add("orderFail-container");
+    orderConfirmText.innerText = `
+      Something went wrong with the order, please try again or contact support.
+    `;
+  }
 });
