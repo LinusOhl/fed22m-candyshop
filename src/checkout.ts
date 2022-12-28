@@ -14,16 +14,16 @@ const customerEmail = document.querySelector("#email") as HTMLInputElement;
 orderForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const totalPrice = 50;
+  const totalPrice = 52;
   const cartList: IOrderItem[] = [
     {
-      product_id: 7,
+      product_id: 5216,
       qty: 3,
-      item_price: 10,
-      item_total: 30,
+      item_price: 12,
+      item_total: 36,
     },
     {
-      product_id: 3,
+      product_id: 6545,
       qty: 2,
       item_price: 8,
       item_total: 16,
