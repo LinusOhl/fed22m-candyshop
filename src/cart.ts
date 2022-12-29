@@ -1,11 +1,11 @@
     import { ICandy } from "./interfaces"
-
     
 
+    
    let cartItems: ICandy[] = [];
   
 
-    const addCandy = (item: ICandy) => {
+    export const addCandy = (item: ICandy) => {
       cartItems.push(item);
     }
 
