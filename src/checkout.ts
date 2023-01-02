@@ -80,4 +80,6 @@ orderForm.addEventListener("submit", async (e) => {
       Something went wrong with the order, please try again or contact support.
     `;
   }
+
+  window.scrollTo(0, document.body.scrollHeight);
 });
