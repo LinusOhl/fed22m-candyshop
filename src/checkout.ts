@@ -12,9 +12,19 @@ const customerCity = document.querySelector("#city") as HTMLInputElement;
 const customerEmail = document.querySelector("#email") as HTMLInputElement;
 const customerPhone = document.querySelector("#phone") as HTMLInputElement;
 
+// sets the input-fields value to the stored info in localstorage
+customerFName.value = localStorage.getItem("customerFName")!;
+customerLName.value = localStorage.getItem("customerLName")!;
+customerAddress.value = localStorage.getItem("customerAddress")!;
+customerPostcode.value = localStorage.getItem("customerPostcode")!;
+customerCity.value = localStorage.getItem("customerCity")!;
+customerEmail.value = localStorage.getItem("customerEmail")!;
+customerPhone.value = localStorage.getItem("customerPhone")!;
+
 orderForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
+  // template cart list
   const totalPrice = 52;
   const cartList: IOrderItem[] = [
     {
@@ -31,6 +41,15 @@ orderForm.addEventListener("submit", async (e) => {
     },
   ];
 
+  // saves customer info in localstorage
+  localStorage.setItem("customerFName", customerFName.value);
+  localStorage.setItem("customerLName", customerLName.value);
+  localStorage.setItem("customerAddress", customerAddress.value);
+  localStorage.setItem("customerPostcode", customerPostcode.value);
+  localStorage.setItem("customerCity", customerCity.value);
+  localStorage.setItem("customerEmail", customerEmail.value);
+  localStorage.setItem("customerPhone", customerPhone.value);
+
   const newOrder: IOrder = {
     customer_first_name: customerFName.value,
     customer_last_name: customerLName.value,
@@ -46,6 +65,7 @@ orderForm.addEventListener("submit", async (e) => {
   const orderDetails = await createOrder(newOrder);
   console.log(orderDetails.status);
 
+  // success / fail HTML-window
   const orderConfirmContainer = document.querySelector("#orderConfirmation-container") as HTMLElement;
   const orderConfirmText = document.querySelector("#orderConfirmation-text") as HTMLParagraphElement;
 
