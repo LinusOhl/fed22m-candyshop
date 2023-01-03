@@ -1,5 +1,4 @@
 .cart-modal {
-    display: none;
     position: fixed;
     z-index: 1;
     right: 0;
@@ -15,4 +14,43 @@
     width: 25%;
     float: right;
     height: 100%;
+}
+
+.display-none {
+    display: none;
+}
+
+.x-mark-close {
+    float: right;
+    font-size: 25px;
+    margin-right: 8px;
+    margin-top: 8px;
+    cursor: pointer;
+}
+
+#cart-icon {
+    cursor: pointer;
+}
+
+.cart-list {
+    list-style-type: none;
+    padding-inline-start: 0px;
+}
+
+.cart-item-img {
+    width: 100px;
+    height: 100px;
+    margin-right: 8px;
+}
+
+.cart-item-info {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 32px;
+
+}
+
+.cart-item {
+    margin: 4px 0px;
+    border-bottom: 1px solid lightgray;
 }
