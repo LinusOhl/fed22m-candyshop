@@ -26,6 +26,7 @@ const renderAllCandy = () => {
     </li>
   `)
   .join("");
+  
   const addToCartBtn = Array.from(document.querySelectorAll("#btn-addToCart"))
   addToCartBtn.forEach((btn) => {
     btn.addEventListener("click", (e) => { 
