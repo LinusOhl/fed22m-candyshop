@@ -1,10 +1,12 @@
 import './style.css'
 import { fetchAllCandy } from "./api"
 import { ICandy } from "./interfaces"
-import { addCandy } from './cart';
+import { addCandy,hide,show } from './cart';
 
 // get ul-element from DOM
 const candyListEl = document.querySelector("#candy-list")!;
+const cartModal = document.querySelector('#cartModal');
+const cartModalContent = document.querySelector('.cart-modal-content');
 
 // base url to the api
 const base_url = "https://www.bortakvall.se";
@@ -73,3 +75,21 @@ document.querySelector(".lightbox")?.addEventListener("click", e => {
     target.classList.add("hide");
   }
 });
+
+document.querySelector("#cart-icon")?.addEventListener("click", () => {
+  show()
+})
+
+document.querySelector(".x-mark-close")?.addEventListener("click", () => {
+  hide()
+})
+
+
+cartModal?.addEventListener('click', () => {
+	hide()
+})
+
+cartModalContent?.addEventListener('click', (e) => {
+	e.stopPropagation();
+})
+
