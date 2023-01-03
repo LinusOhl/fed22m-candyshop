@@ -1,9 +1,12 @@
 import './style.css'
 import { fetchAllCandy } from "./api"
 import { ICandy } from "./interfaces"
+import { addCandy,hide,show } from './cart';
 
 // get ul-element from DOM
 const candyListEl = document.querySelector("#candy-list")!;
+const cartModal = document.querySelector('#cartModal');
+const cartModalContent = document.querySelector('.cart-modal-content');
 
 // get reference to sort btn
 const sortBtn = document.querySelector("#sortBtn");
@@ -35,6 +38,7 @@ const stockCandy = products.reduce( (acc, candy ) => {
 
 // renders all products as cards on the DOM
 const renderAllCandy = () => {
+
   candyListEl.innerHTML = products.map(candy => { 
     
    // if candy out is out of stock, dont show candy quantity and disable add to cart button
@@ -70,7 +74,16 @@ const renderAllCandy = () => {
   })
 
   .join("");
-
+  const addToCartBtn = Array.from(document.querySelectorAll("#btn-addToCart"))
+  addToCartBtn.forEach((btn) => {
+    btn.addEventListener("click", (e) => { 
+      const candyId = Number((e.target as HTMLButtonElement).dataset.candyId)
+      const extractedCandy  = products.find((candy: ICandy) => {
+        return candy.id === candyId
+      }) 
+      addCandy(extractedCandy!);
+    });
+  });
 };
 
 renderAllCandy();
@@ -114,6 +127,7 @@ document.querySelector(".lightbox")?.addEventListener("click", e => {
   }
 });
 
+
 // listen after click on sortBtn, then sort all candy alpabetically
 sortBtn.addEventListener("click", () => {
   
@@ -134,5 +148,23 @@ renderAllCandy();
 
 })
 
+
+
+document.querySelector("#cart-icon")?.addEventListener("click", () => {
+  show()
+})
+
+document.querySelector(".x-mark-close")?.addEventListener("click", () => {
+  hide()
+})
+
+
+cartModal?.addEventListener('click', () => {
+	hide()
+})
+
+cartModalContent?.addEventListener('click', (e) => {
+	e.stopPropagation();
+})
 
 

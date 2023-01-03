@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="src/style.css">
     <link rel="stylesheet" href="src/css/candyCards.css">
     <link rel="stylesheet" href="src/css/lightbox.css">
+    <link rel="stylesheet" href="src/css/cart.css">
   </head>
   
   <body>
@@ -35,10 +36,23 @@
       <h1 class="mainHeader" id="header">candyshop</h1>
 
       <!-- VARUKORGEN -->
-      <div class="cart-box"><i class="fa-solid fa-cart-shopping fa-2x"></i></div>
-      <div class="whole-cart">
-        
+    
+      <div class="cart-box">
+        <div class="fa-solid fa-cart-shopping fa-2x" id="cart-icon" ></div>
+
       </div>
+
+
+      <div id="cartModal" class="cart-modal display-none">
+        <div class="cart-modal-content">
+          <i class="fa-solid fa-xmark x-mark-close"></i>
+          <p>din varukorg</p>
+          <button id="GoToCheckout"><a href="./checkout.html">Gå till kassan</a></button>
+          <ul class="cart-list" id="cart-list"></ul>
+        </div>
+      </div>
+
+
 
     </header>
  
