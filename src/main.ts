@@ -5,12 +5,32 @@ import { ICandy } from "./interfaces"
 // get ul-element from DOM
 const candyListEl = document.querySelector("#candy-list")!;
 
+const sortera = document.querySelector("#sortBtn");
+
+
 // base url to the api
 const base_url = "https://www.bortakvall.se";
 
 // save data of products from api as an array
 const temp = await fetchAllCandy();
 const products: ICandy[] = temp.data;
+
+
+//Sort candy by name 
+products.sort( (a, b) => {
+  if (a.name.toUpperCase() < b.name.toUpperCase()) {
+    return -1;
+  }
+
+  if (a.name.toUpperCase() > b.name.toUpperCase()) {
+    return 1;
+  }
+
+  return 0;
+});
+
+console.log("Candy sort by name:", products);
+
 
 // renders all products as cards on the DOM
 const renderAllCandy = () => {
@@ -19,12 +39,32 @@ const renderAllCandy = () => {
       <img src="${base_url + candy.images.thumbnail}" alt="${candy.name}">
       <p class="candy-name" id="candy-name">${candy.name}</p>
       <p class="candy-price" id="candy-price">${candy.price}kr</p>
+      <p class="candy-stock" id="candy-stock">I Lager: ${candy.stock_quantity}st</p>
+      <p class="candy-stockstatus" id="candy-stockstatus">${candy.stock_status}</p>
       <button class="btn-addToCart" id="btn-addToCart">Add to cart</button>
     </li>
   `)
+
   .join("");
+
 };
+
 renderAllCandy();
+
+//Sort candy by name 
+products.sort( (a, b) => {
+  if (a.name.toUpperCase() < b.name.toUpperCase()) {
+    return -1;
+  }
+
+  if (a.name.toUpperCase() > b.name.toUpperCase()) {
+    return 1;
+  }
+
+  return 0;
+});
+
+console.log("Candy sort by name:", products);
 
 // clicking on img of candy opens a lightbox with more info of clicked candy
 candyListEl.addEventListener("click", e => {
@@ -62,3 +102,6 @@ document.querySelector(".lightbox")?.addEventListener("click", e => {
     target.classList.add("hide");
   }
 });
+
+
+
