@@ -14,7 +14,7 @@ export interface ICandy {
     large: string;
   };
   stock_status: string;
-  stock_quantity: null;
+  stock_quantity: null | number;
 }
 
 export interface IOrderItem {
