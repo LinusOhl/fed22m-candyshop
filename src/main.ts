@@ -65,7 +65,7 @@ const renderAllCandy = () => {
         <p class="candy-price" id="candy-price">${candy.price}kr</p>
         <p class="candy-stock" id="candy-stock">I Lager: ${candy.stock_quantity}st</p>
         <p class="candy-stockstatus" id="candy-stockstatus">${candy.stock_status}</p>
-        <button class="btn-addToCart" id="btn-addToCart">Add to cart</button>
+        <button class="btn-addToCart" id="btn-addToCart" data-candy-id="${candy.id}">Add to cart</button>
       </li>
     `
     }
@@ -77,6 +77,7 @@ const renderAllCandy = () => {
   const addToCartBtn = Array.from(document.querySelectorAll("#btn-addToCart"))
   addToCartBtn.forEach((btn) => {
     btn.addEventListener("click", (e) => { 
+      console.log("hej")
       const candyId = Number((e.target as HTMLButtonElement).dataset.candyId)
       const extractedCandy  = products.find((candy: ICandy) => {
         return candy.id === candyId
