@@ -1,9 +1,12 @@
 import './style.css'
 import { fetchAllCandy } from "./api"
 import { ICandy } from "./interfaces"
+import { addCandy,hide,show } from './cart';
 
 // get ul-element from DOM
 const candyListEl = document.querySelector("#candy-list")!;
+const cartModal = document.querySelector('#cartModal');
+const cartModalContent = document.querySelector('.cart-modal-content');
 
 // base url to the api
 const base_url = "https://www.bortakvall.se";
@@ -19,10 +22,20 @@ const renderAllCandy = () => {
       <img src="${base_url + candy.images.thumbnail}" alt="${candy.name}">
       <p class="candy-name" id="candy-name">${candy.name}</p>
       <p class="candy-price" id="candy-price">${candy.price}kr</p>
-      <button class="btn-addToCart" id="btn-addToCart">Add to cart</button>
+      <button class="btn-addToCart" id="btn-addToCart" data-candy-id="${candy.id}">Add to cart</button>
     </li>
   `)
   .join("");
+  const addToCartBtn = Array.from(document.querySelectorAll("#btn-addToCart"))
+  addToCartBtn.forEach((btn) => {
+    btn.addEventListener("click", (e) => { 
+      const candyId = Number((e.target as HTMLButtonElement).dataset.candyId)
+      const extractedCandy  = products.find((candy: ICandy) => {
+        return candy.id === candyId
+      }) 
+      addCandy(extractedCandy!);
+    });
+  });
 };
 renderAllCandy();
 
@@ -62,3 +75,21 @@ document.querySelector(".lightbox")?.addEventListener("click", e => {
     target.classList.add("hide");
   }
 });
+
+document.querySelector("#cart-icon")?.addEventListener("click", () => {
+  show()
+})
+
+document.querySelector(".x-mark-close")?.addEventListener("click", () => {
+  hide()
+})
+
+
+cartModal?.addEventListener('click', () => {
+	hide()
+})
+
+cartModalContent?.addEventListener('click', (e) => {
+	e.stopPropagation();
+})
+
