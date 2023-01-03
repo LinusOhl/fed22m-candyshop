@@ -1,5 +1,5 @@
 import { createOrder } from "./api";
-import { IOrder } from "./interfaces";
+import { ICandy, IOrder } from "./interfaces";
 import { IOrderItem } from "./interfaces";
 
 // form DOM-elements
@@ -21,25 +21,123 @@ customerCity.value = localStorage.getItem("customerCity")!;
 customerEmail.value = localStorage.getItem("customerEmail")!;
 customerPhone.value = localStorage.getItem("customerPhone")!;
 
+let orderTotalPrice = 0;
+let orderList: IOrderItem[] = [];
+
+// template cartList
+const cartList: ICandy[] = [
+  {
+    id: 5216,
+    name: "Gott & Blandat Giants",
+    description: "<p>En mix av lakrits och gelé med fruktsmak</p>\n<p>Innehållsförteckning: Socker, glukossirap, glukos-fruktossirap, stärkelse, VETEMJÖL, melass, syra (citronsyra), fuktighetsbevarande medel (sorbitoler, glycerol), lakritsextrakt, salt, vegetabiliska oljor (kokos, palm), aromer, färgämnen (E153, E120, E100, E141), ytbehandlingsmedel (bivax), stabiliseringsmedel (E471).</p>\n<p><em>Alla priser är per skopa.</em></p>\n",
+    price: 12,
+    on_sale: false,
+    images: {
+      thumbnail: "/storage/products/thumbnails/1997509-300x300.png",
+      large: "/storage/products/1997509.png"
+    },
+    stock_status: "instock",
+    stock_quantity: 5
+  },
+  {
+    id: 5216,
+    name: "Gott & Blandat Giants",
+    description: "<p>En mix av lakrits och gelé med fruktsmak</p>\n<p>Innehållsförteckning: Socker, glukossirap, glukos-fruktossirap, stärkelse, VETEMJÖL, melass, syra (citronsyra), fuktighetsbevarande medel (sorbitoler, glycerol), lakritsextrakt, salt, vegetabiliska oljor (kokos, palm), aromer, färgämnen (E153, E120, E100, E141), ytbehandlingsmedel (bivax), stabiliseringsmedel (E471).</p>\n<p><em>Alla priser är per skopa.</em></p>\n",
+    price: 12,
+    on_sale: false,
+    images: {
+      thumbnail: "/storage/products/thumbnails/1997509-300x300.png",
+      large: "/storage/products/1997509.png"
+    },
+    stock_status: "instock",
+    stock_quantity: 5
+  },
+  {
+    id: 6545,
+    name: "Banana Bubs",
+    description: "<p>Banan/gräddkola</p>\n<p>Innehållsförteckning: Glukos-fruktossirap, socker, majsstärkelse, vatten, surhetsreglerande medel (äppelsyra, natriumcitrat), potatisprotein, aromämnen, färgämnen: (E150d, E100), kokosolja, ytbehandlingsmedel (karnaubavax).</p>\n<p><em>Alla priser är per skopa.</em></p>\n",
+    price: 8,
+    on_sale: false,
+    images: {
+      thumbnail: "/storage/products/thumbnails/156622-300x300.png",
+      large: "/storage/products/156622.png"
+    },
+    stock_status: "instock",
+    stock_quantity: 8
+  },
+  {
+    id: 6545,
+    name: "Banana Bubs",
+    description: "<p>Banan/gräddkola</p>\n<p>Innehållsförteckning: Glukos-fruktossirap, socker, majsstärkelse, vatten, surhetsreglerande medel (äppelsyra, natriumcitrat), potatisprotein, aromämnen, färgämnen: (E150d, E100), kokosolja, ytbehandlingsmedel (karnaubavax).</p>\n<p><em>Alla priser är per skopa.</em></p>\n",
+    price: 8,
+    on_sale: false,
+    images: {
+      thumbnail: "/storage/products/thumbnails/156622-300x300.png",
+      large: "/storage/products/156622.png"
+    },
+    stock_status: "instock",
+    stock_quantity: 8
+  },
+  {
+    id: 6545,
+    name: "Banana Bubs",
+    description: "<p>Banan/gräddkola</p>\n<p>Innehållsförteckning: Glukos-fruktossirap, socker, majsstärkelse, vatten, surhetsreglerande medel (äppelsyra, natriumcitrat), potatisprotein, aromämnen, färgämnen: (E150d, E100), kokosolja, ytbehandlingsmedel (karnaubavax).</p>\n<p><em>Alla priser är per skopa.</em></p>\n",
+    price: 8,
+    on_sale: false,
+    images: {
+      thumbnail: "/storage/products/thumbnails/156622-300x300.png",
+      large: "/storage/products/156622.png"
+    },
+    stock_status: "instock",
+    stock_quantity: 8
+  },
+  {
+    id: 6545,
+    name: "Banana Bubs",
+    description: "<p>Banan/gräddkola</p>\n<p>Innehållsförteckning: Glukos-fruktossirap, socker, majsstärkelse, vatten, surhetsreglerande medel (äppelsyra, natriumcitrat), potatisprotein, aromämnen, färgämnen: (E150d, E100), kokosolja, ytbehandlingsmedel (karnaubavax).</p>\n<p><em>Alla priser är per skopa.</em></p>\n",
+    price: 8,
+    on_sale: false,
+    images: {
+      thumbnail: "/storage/products/thumbnails/156622-300x300.png",
+      large: "/storage/products/156622.png"
+    },
+    stock_status: "instock",
+    stock_quantity: 8
+  },
+]
+
+// converts cartList: ICandy[] to orderList: IOrderItem[]
+const cartListToOrder = () => {
+  for (let i = 0; i < cartList.length; i++) {
+    const found = orderList.find(item => item.product_id === cartList[i].id)
+
+    if (!found) {
+      const temp: IOrderItem = {
+        product_id: cartList[i].id,
+        qty: 1,
+        item_price: cartList[i].price,
+        item_total: cartList[i].price,
+      }
+
+      orderList.push(temp);
+    } else {
+      found.qty++;
+      found.item_total = found.qty * found.item_price;
+    }
+  }
+
+  // calculate the total price of the whole order
+  for (let i = 0; i < orderList.length; i++) {
+    orderTotalPrice += orderList[i].item_total;
+  }
+
+  console.log(orderList, orderTotalPrice);
+};
+
 orderForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  // template cart list
-  const totalPrice = 52;
-  const cartList: IOrderItem[] = [
-    {
-      product_id: 5216,
-      qty: 3,
-      item_price: 12,
-      item_total: 36,
-    },
-    {
-      product_id: 6545,
-      qty: 2,
-      item_price: 8,
-      item_total: 16,
-    },
-  ];
+  cartListToOrder();
 
   // saves customer info in localstorage
   localStorage.setItem("customerFName", customerFName.value);
@@ -58,8 +156,8 @@ orderForm.addEventListener("submit", async (e) => {
     customer_city: customerCity.value,
     customer_email: customerEmail.value,
     customer_phone: customerPhone.value,
-    order_total: totalPrice,
-    order_items: cartList
+    order_total: orderTotalPrice,
+    order_items: orderList
   };
 
   const orderDetails = await createOrder(newOrder);
