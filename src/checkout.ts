@@ -24,87 +24,8 @@ customerPhone.value = localStorage.getItem("customerPhone")!;
 let orderTotalPrice = 0;
 let orderList: IOrderItem[] = [];
 
-// template cartList
-const cartList: ICandy[] = [
-  {
-    id: 5216,
-    name: "Gott & Blandat Giants",
-    description: "<p>En mix av lakrits och gelé med fruktsmak</p>\n<p>Innehållsförteckning: Socker, glukossirap, glukos-fruktossirap, stärkelse, VETEMJÖL, melass, syra (citronsyra), fuktighetsbevarande medel (sorbitoler, glycerol), lakritsextrakt, salt, vegetabiliska oljor (kokos, palm), aromer, färgämnen (E153, E120, E100, E141), ytbehandlingsmedel (bivax), stabiliseringsmedel (E471).</p>\n<p><em>Alla priser är per skopa.</em></p>\n",
-    price: 12,
-    on_sale: false,
-    images: {
-      thumbnail: "/storage/products/thumbnails/1997509-300x300.png",
-      large: "/storage/products/1997509.png"
-    },
-    stock_status: "instock",
-    stock_quantity: 5
-  },
-  {
-    id: 5216,
-    name: "Gott & Blandat Giants",
-    description: "<p>En mix av lakrits och gelé med fruktsmak</p>\n<p>Innehållsförteckning: Socker, glukossirap, glukos-fruktossirap, stärkelse, VETEMJÖL, melass, syra (citronsyra), fuktighetsbevarande medel (sorbitoler, glycerol), lakritsextrakt, salt, vegetabiliska oljor (kokos, palm), aromer, färgämnen (E153, E120, E100, E141), ytbehandlingsmedel (bivax), stabiliseringsmedel (E471).</p>\n<p><em>Alla priser är per skopa.</em></p>\n",
-    price: 12,
-    on_sale: false,
-    images: {
-      thumbnail: "/storage/products/thumbnails/1997509-300x300.png",
-      large: "/storage/products/1997509.png"
-    },
-    stock_status: "instock",
-    stock_quantity: 5
-  },
-  {
-    id: 6545,
-    name: "Banana Bubs",
-    description: "<p>Banan/gräddkola</p>\n<p>Innehållsförteckning: Glukos-fruktossirap, socker, majsstärkelse, vatten, surhetsreglerande medel (äppelsyra, natriumcitrat), potatisprotein, aromämnen, färgämnen: (E150d, E100), kokosolja, ytbehandlingsmedel (karnaubavax).</p>\n<p><em>Alla priser är per skopa.</em></p>\n",
-    price: 8,
-    on_sale: false,
-    images: {
-      thumbnail: "/storage/products/thumbnails/156622-300x300.png",
-      large: "/storage/products/156622.png"
-    },
-    stock_status: "instock",
-    stock_quantity: 8
-  },
-  {
-    id: 6545,
-    name: "Banana Bubs",
-    description: "<p>Banan/gräddkola</p>\n<p>Innehållsförteckning: Glukos-fruktossirap, socker, majsstärkelse, vatten, surhetsreglerande medel (äppelsyra, natriumcitrat), potatisprotein, aromämnen, färgämnen: (E150d, E100), kokosolja, ytbehandlingsmedel (karnaubavax).</p>\n<p><em>Alla priser är per skopa.</em></p>\n",
-    price: 8,
-    on_sale: false,
-    images: {
-      thumbnail: "/storage/products/thumbnails/156622-300x300.png",
-      large: "/storage/products/156622.png"
-    },
-    stock_status: "instock",
-    stock_quantity: 8
-  },
-  {
-    id: 6545,
-    name: "Banana Bubs",
-    description: "<p>Banan/gräddkola</p>\n<p>Innehållsförteckning: Glukos-fruktossirap, socker, majsstärkelse, vatten, surhetsreglerande medel (äppelsyra, natriumcitrat), potatisprotein, aromämnen, färgämnen: (E150d, E100), kokosolja, ytbehandlingsmedel (karnaubavax).</p>\n<p><em>Alla priser är per skopa.</em></p>\n",
-    price: 8,
-    on_sale: false,
-    images: {
-      thumbnail: "/storage/products/thumbnails/156622-300x300.png",
-      large: "/storage/products/156622.png"
-    },
-    stock_status: "instock",
-    stock_quantity: 8
-  },
-  {
-    id: 6545,
-    name: "Banana Bubs",
-    description: "<p>Banan/gräddkola</p>\n<p>Innehållsförteckning: Glukos-fruktossirap, socker, majsstärkelse, vatten, surhetsreglerande medel (äppelsyra, natriumcitrat), potatisprotein, aromämnen, färgämnen: (E150d, E100), kokosolja, ytbehandlingsmedel (karnaubavax).</p>\n<p><em>Alla priser är per skopa.</em></p>\n",
-    price: 8,
-    on_sale: false,
-    images: {
-      thumbnail: "/storage/products/thumbnails/156622-300x300.png",
-      large: "/storage/products/156622.png"
-    },
-    stock_status: "instock",
-    stock_quantity: 8
-  },
-]
+// get cartList from localstorage
+const cartList: ICandy[] = JSON.parse(localStorage.getItem("cartList")!);
 
 // converts cartList: ICandy[] to orderList: IOrderItem[]
 const cartListToOrder = () => {
@@ -179,5 +100,9 @@ orderForm.addEventListener("submit", async (e) => {
     `;
   }
 
+  // removes the stored cartList from localstorage
+  localStorage.removeItem("cartList");
+
+  // scrolls to bottom of the page
   window.scrollTo(0, document.body.scrollHeight);
 });
