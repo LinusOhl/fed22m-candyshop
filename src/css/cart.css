@@ -103,8 +103,8 @@
 .total-cost {
     font-family: 'Roboto', sans-serif;
     position: absolute;
-    top: 95%;
-    right: 100px;
+    top: 98%;
+    left: 20px;
 }
 
 .trash-icon {
