@@ -31,7 +31,7 @@ const stockCandy = products.reduce( (acc, candy ) => {
   return acc
 },0)
 
-totStock.innerHTML = `<p id="totCandy">Candys in stock: ${stockCandy}/${products.length}st</p>`;
+totStock.innerHTML = `<p id="totCandy">Candies in stock: ${stockCandy}/${products.length}st</p>`;
 
 
 

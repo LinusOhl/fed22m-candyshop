@@ -4,14 +4,10 @@ body {
     box-sizing: border-box;
   }
   
-  
-  
   .hide {
     display: none;
   }
   
- 
-
   #checkoutHeader {
   font-size: 40px;
   text-align: center;
@@ -30,7 +26,7 @@ body {
   #wholeCheckout {
     box-sizing: border-box;
     border: 5px solid rgba(105, 177, 225, 0.466);
-    height: 100%;
+    height: 100vh;
   }  
 
   .shopppingCart {
@@ -42,7 +38,6 @@ body {
   #orderInfo {
     display: inline-block;
     box-sizing: border-box;
-    
     height: 459px;
   }
 
@@ -88,14 +83,12 @@ body {
   }
 
   #orderBtn {
-    margin-top: 7px;
+    
+    margin-top: 15px;
     margin-right: 10px;
     float: right;
     font-size: 16px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding: 10px;
     font-weight: 400;
     background-color: #4CAF50;
     color: whitesmoke;
