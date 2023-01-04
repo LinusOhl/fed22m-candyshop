@@ -1,4 +1,4 @@
-import './style.css'
+import './css/style.css'
 import { fetchAllCandy } from "./api"
 import { ICandy } from "./interfaces"
 import { addCandy,hide,show } from './cart';
@@ -10,7 +10,7 @@ const cartModalContent = document.querySelector('.cart-modal-content');
 const totStock = document.querySelector('#totStock')!;
 
 // get reference to sort btn
-const sortBtn = document.querySelector("#sortBtn");
+const sortBtn = document.querySelector("#sortBtn")!;
 
 
 // base url to the api
