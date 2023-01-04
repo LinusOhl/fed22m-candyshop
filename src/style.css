@@ -18,22 +18,18 @@ header {
   width: 100%;
 }
 
-.cart-box {
-  position: absolute;
-  left: 87%;
-  top: 130px;
-}
+
 
 .mainHeader {
   font-size: 40px;
   text-align: center;
   text-transform: uppercase;
   font-family: 'Roboto', sans-serif;
-  color: rgb(249, 160, 209);
+  color: rgb(106, 193, 247);
   background-color: rgb(235, 250, 255);
   text-shadow: 2px 2px #e5d2d9;
   margin: auto;
-  padding-top: 30px;
+  padding-top: 40px;
   padding-bottom: 10px;
 }
 
@@ -41,7 +37,15 @@ header {
   box-sizing: border-box;
   border: 5px solid pink;
   background-color: rgb(255, 255, 255);
+  
+}
+
+.cart-box {
   position: relative;
+  float: right;
+  right: 10px;
+  top: 18px;
+  
 }
 
 #sortBtn {
@@ -51,7 +55,7 @@ header {
   color: rgb(147, 147, 147);
   font-size: 11px;
   float: left;
-  top: 9px;
+  top: 120px;
   padding-left: 10px;
   border: 1px solid white;
 
@@ -97,7 +101,7 @@ header {
   .mainHeader {
     font-size: 60px;
     padding-top: 33px;
-    color: rgb(249, 160, 209);
+    color: rgb(106, 193, 247);
   }
 
   #underRubrik {
@@ -108,24 +112,25 @@ header {
 
   #sortBtn {
     position: absolute;
-    display: inline-block;
     background-color: white;
     color: rgb(147, 147, 147);
     font-size: 14px;
-    margin-top: 100px;
-    left: 20px;
+    top: 170px;
+    float: left;
     border: 1px solid white;
   
   }
 
   .cart-box {
-    top: 165px;
-    left: 93%;
+    position: relative;
+    float: right;
+    right: 10px;
+    top: 45px;
   }
 
   #allCandyDisplay {
-    position: relative;
-    border: 8px solid pink;
+
+    border: 8px solid rgba(105, 177, 225, 0.466);
 }
 
 
@@ -139,13 +144,13 @@ header {
   .mainHeader {
     font-size: 50px;
     padding-top: 65px;
-    color: rgb(249, 160, 209);
+    color: rgb(106, 193, 247);
   }
 
   #sortBtn {
     position: absolute;
     float: left;
-    margin-top: -100px;
+    top: 220px;
   }
 
   #underRubrik {
@@ -154,16 +159,20 @@ header {
   }
 
   .cart-box {
-    padding-top: 100px;
-    top: 130px;
-    left: 95%;
-    
+    float: right;
+    position: absolute;
+    top: 210px;
   }
 
+  
+
   #allCandyDisplay {
-    position: relative;
-    border: 10px solid pink;
+    
+    border: 10px solid rgba(105, 177, 225, 0.466);
 }
+
+ 
+
 }
 
 
