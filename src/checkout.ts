@@ -1,6 +1,7 @@
 import { createOrder } from "./api";
 import { ICandy, IOrder } from "./interfaces";
 import { IOrderItem } from "./interfaces";
+import {renderCartForCheckOut} from "./cart";
 
 // form DOM-elements
 const orderForm = document.querySelector("#new-order-form")!;
@@ -106,3 +107,5 @@ orderForm.addEventListener("submit", async (e) => {
   // scrolls to bottom of the page
   window.scrollTo(0, document.body.scrollHeight);
 });
+
+renderCartForCheckOut();

@@ -100,3 +100,46 @@
     cursor: pointer;
     border: 2px solid;
 }
+.total-cost {
+    font-family: 'Roboto', sans-serif;
+    position: absolute;
+    top: 95%;
+    right: 100px;
+}
+
+.trash-icon {
+    float: right;
+    margin-right: 16px;
+}
+
+#total-cost-per-item {
+    text-align: right;
+    margin-right: 16px;
+}
+
+.add-remove-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.add, .remove{
+    border: 1px solid grey;
+    padding: 8px;
+    width: 8px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.add-remove {
+    line-height: 37px;
+}
+
+.item-price {
+    margin-top:10px
+}
+
+ul {
+    list-style-type: none;
+}
