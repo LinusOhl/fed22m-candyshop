@@ -16,37 +16,48 @@
     <header id="checkoutHeader">Candyshop</header>
     <main>
     <div id="wholeCheckout">
-        <!-- VARUKORGSSAMMANSTÄLLNING -->
-        <div class="shoppingCart" id="checkoutCart">
-            <p id="finalCheckout">Checkout</p>
-            <ul></ul>
-        </div>
-
-        <!-- BESTÄLLNINGSFORMULÄR -->
-        <div class="shoppingCart" id="orderInfo">
-            <p id="orderInfoHeader">Order information</p>
-           <form action="">
-            <label class="lbl" for="fname">First Name</label>
-            <input class="info" type="text" placeholder="Your first name.." required>
-            <label class="lbl" for="fname">Last Name</label>
-            <input class="info" type="text" placeholder="Your last name.." required>
-            <label class="lbl" for="fname">Adress</label>
-            <input class="info" type="text" placeholder="Your adress.." required>
-            <label class="lbl" for="fname">Postal Code</label>
-            <input class="info" type="text" placeholder="Your postal code.." required>
-            <label class="lbl" for="fname">Email</label>
-            <input class="info" type="text" placeholder="Your email adress.." required>
-            <label class="lbl" for="fname">Phone number</label>
-            <input class="info" type="text">
-           </form>
-           <button id="orderBtn">BESTÄLL</button>
-        </div>
-
-    </div>
-      <!-- ORDER CONFIRMATION -->
-      <div class="hide" id="orderConf">
-        <p id="orderConfirmation"> <span id="orderNumber">0</span> </p>
+      <!-- VARUKORGSSAMMANSTÄLLNING -->
+      <div class="shoppingCart" id="checkoutCart">
+        <p id="finalCheckout">Checkout</p>
+        <ul></ul>
       </div>
-    </main>
+
+      <!-- BESTÄLLNINGSFORMULÄR -->
+      <div class="shoppingCart" id="orderInfo">
+        <p id="orderInfoHeader">Order information</p>
+        <form id="new-order-form">
+          <label class="lbl" for="fname">First Name</label>
+          <input class="info" type="text" placeholder="Your first name.." id="fname" name="fname" required>
+
+          <label class="lbl" for="lname">Last Name</label>
+          <input class="info" type="text" placeholder="Your last name.." id="lname" name="lname" required>
+
+          <label class="lbl" for="address">Address</label>
+          <input class="info" type="text" placeholder="Your adress.." id="address" name="address" required>
+
+          <label class="lbl" for="postcode">Postal Code</label>
+          <input class="info" type="text" placeholder="Your postal code.." id="postcode" name="postcode" required>
+
+          <label class="lbl" for="city">City</label>
+          <input class="info" type="text" placeholder="Your city..." id="city" name="city" required>
+
+          <label class="lbl" for="email">Email</label>
+          <input class="info" type="email" placeholder="Your email adress.." id="email" name="email" required>
+
+          <label class="lbl" for="phone">Phone number</label>
+          <input class="info" type="text" id="phone" name="phone">
+
+          <input type="submit" value="ORDER" id="orderBtn">
+        </form>
+      </div>
+    </div>
+
+    <!-- ORDER CONFIRMATION -->
+    <div class="hide" id="orderConfirmation-container">
+      <p class="orderConfirm-text" id="orderConfirmation-text">Test</p>
+    </div>
+  </main>
+    
+    <script type="module" src="/src/checkout.ts"></script>
 </body>
 </html>

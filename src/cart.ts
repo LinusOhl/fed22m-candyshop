@@ -10,6 +10,9 @@
 
     export const addCandy = (item: ICandy) => {
       cartItems.push(item);
+
+      // save cartList to localstorage
+      localStorage.setItem("cartList", JSON.stringify(cartItems));
     }
 
     const removeCandy = (item: ICandy) => {
@@ -17,6 +20,9 @@
       if (index >= 0) {
         cartItems.splice(index, 1);
       }
+
+      // save cartList to localstorage
+      localStorage.setItem("cartList", JSON.stringify(cartItems));
     }
 
     const getTotal = () => {
