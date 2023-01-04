@@ -30,12 +30,19 @@ header {
   text-shadow: 2px 2px #e5d2d9;
   margin: auto;
   padding-top: 40px;
-  padding-bottom: 10px;
+  padding-bottom: 30px;
+}
+
+#totStock {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  text-align: center;
+  color: rgb(39, 49, 54);;
 }
 
 #allCandyDisplay {
   box-sizing: border-box;
-  border: 5px solid pink;
+  border: 5px solid rgba(105, 177, 225, 0.466);
   background-color: rgb(255, 255, 255);
   
 }
@@ -55,7 +62,7 @@ header {
   color: rgb(147, 147, 147);
   font-size: 11px;
   float: left;
-  top: 120px;
+  top: 140px;
   padding-left: 10px;
   border: 1px solid white;
 
@@ -107,7 +114,15 @@ header {
   #underRubrik {
     font-size: 30px;
     padding-top: 40px;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
+  }
+
+  #totStock {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    text-align: center;
+    color: rgb(39, 49, 54);;
+    padding-bottom: 20px;
   }
 
   #sortBtn {
