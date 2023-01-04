@@ -31,11 +31,6 @@ const stockCandy = products.reduce( (acc, candy ) => {
 },0)
 
 
-
-//att denna kod nedanför skall köras om allt finns på lager.
-// om stock quantity är null, candy stockstatus "outofstock", skall add to cart btn vara disabled, samt candy stock quantity EJ visas.
-
-
 // renders all products as cards on the DOM
 const renderAllCandy = () => {
 
@@ -51,7 +46,7 @@ const renderAllCandy = () => {
         <p class="candy-price" id="candy-price">${candy.price}kr</p>
         <p class="candy-stockstatus" id="candy-stockstatus">${candy.stock_status}</p>
         <br>
-        <button class="btn-addToCart" id="btn-addToCart" disabled>Out of stock</button>
+        <button class="btn-addToCart" id="btn-addToCart2" disabled>Out of stock</button>
       </li>
     `
     }
