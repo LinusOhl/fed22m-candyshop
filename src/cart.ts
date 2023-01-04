@@ -55,9 +55,9 @@
     <div class="cart-item-info">
       <div>${candy.name}</div>
       <div>${candy.price}kr</div>
-      <div id="minus" data-candy-id="${candy.id}" >-</div>
-      <div>${candyQuantityMap.get(candy.id)}</div>
-      <div id="plus" data-candy-id="${candy.id}" >+</div>
+      <div class="remove" id="minus" data-candy-id="${candy.id}" >-</div>
+      <div class="add-remove">${candyQuantityMap.get(candy.id)}</div>
+      <div class="add" id="plus" data-candy-id="${candy.id}" >+</div>
       </div>
     </li>
   `)
