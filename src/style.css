@@ -4,8 +4,6 @@ body {
   box-sizing: border-box;
 }
 
-
-
 .hide {
   display: none;
 }
@@ -18,29 +16,41 @@ header {
   width: 100%;
 }
 
-.cart-box {
-  position: absolute;
-  left: 87%;
-  top: 130px;
-}
+
 
 .mainHeader {
   font-size: 40px;
   text-align: center;
   text-transform: uppercase;
   font-family: 'Roboto', sans-serif;
-  color: rgb(249, 160, 209);
+  color: rgb(106, 193, 247);
   background-color: rgb(235, 250, 255);
   text-shadow: 2px 2px #e5d2d9;
   margin: auto;
-  padding-top: 30px;
-  padding-bottom: 10px;
+  padding-top: 40px;
+  padding-bottom: 30px;
+}
+
+#totStock {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  text-align: center;
+  color: rgb(39, 49, 54);;
 }
 
 #allCandyDisplay {
   box-sizing: border-box;
-  border: 5px solid pink;
+  border: 5px solid rgba(105, 177, 225, 0.466);
   background-color: rgb(255, 255, 255);
+  
+}
+
+.cart-box {
+  position: relative;
+  float: right;
+  right: 10px;
+  top: 18px;
+  
 }
 
 #sortBtn {
@@ -49,8 +59,9 @@ header {
   background-color: white;
   color: rgb(147, 147, 147);
   font-size: 11px;
-  top: 130px;
-  left: 10px;
+  float: left;
+  top: 140px;
+  padding-left: 10px;
   border: 1px solid white;
 
 }
@@ -95,34 +106,44 @@ header {
   .mainHeader {
     font-size: 60px;
     padding-top: 33px;
-    color: rgb(249, 160, 209);
+    color: rgb(106, 193, 247);
   }
 
   #underRubrik {
     font-size: 30px;
     padding-top: 40px;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
+  }
+
+  #totStock {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    text-align: center;
+    color: rgb(39, 49, 54);;
+    padding-bottom: 20px;
   }
 
   #sortBtn {
     position: absolute;
-    display: inline-block;
     background-color: white;
     color: rgb(147, 147, 147);
     font-size: 14px;
     top: 170px;
-    left: 20px;
+    float: left;
     border: 1px solid white;
   
   }
 
   .cart-box {
-    top: 165px;
-    left: 93%;
+    position: relative;
+    float: right;
+    right: 10px;
+    top: 45px;
   }
 
   #allCandyDisplay {
-    border: 8px solid pink;
+
+    border: 8px solid rgba(105, 177, 225, 0.466);
 }
 
 
@@ -136,11 +157,13 @@ header {
   .mainHeader {
     font-size: 50px;
     padding-top: 65px;
-    color: rgb(249, 160, 209);
+    color: rgb(106, 193, 247);
   }
 
   #sortBtn {
-    top: 28%;
+    position: absolute;
+    float: left;
+    top: 220px;
   }
 
   #underRubrik {
@@ -149,15 +172,20 @@ header {
   }
 
   .cart-box {
-    padding-top: 100px;
-    top: 130px;
-    left: 95%;
-    
+    float: right;
+    position: absolute;
+    top: 210px;
   }
 
+  
+
   #allCandyDisplay {
-    border: 10px solid pink;
+    
+    border: 10px solid rgba(105, 177, 225, 0.466);
 }
+
+ 
+
 }
 
 
