@@ -155,7 +155,25 @@ body {
         resize: vertical;
     }
 
-    
+    #checkoutHeader {
+      height: 100px;
+      font-size: 50px;
+      text-align: center;
+      text-transform: uppercase;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 600;
+      color: rgb(106, 193, 247);
+      background-color: rgb(235, 250, 255);
+      text-shadow: 2px 2px #e5d2d9;
+      margin: auto;
+      padding-top: 60px;
+      padding-bottom: 30px;
+      border: 10px solid rgb(100, 169, 215);
+      }
+
+      #finalCheckout {
+        font-size: 20px;
+      }    
 
       
   }
