@@ -50,7 +50,8 @@ const renderAllCandy = () => {
         <p class="candy-name" id="candy-name">${candy.name}</p>
         <p class="candy-price" id="candy-price">${candy.price}kr</p>
         <p class="candy-stockstatus" id="candy-stockstatus">${candy.stock_status}</p>
-        <button class="btn-addToCart" id="btn-addToCart" disabled>Add to cart</button>
+        <br>
+        <button class="btn-addToCart" id="btn-addToCart" disabled>Out of stock</button>
       </li>
     `
     }
