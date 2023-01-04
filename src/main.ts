@@ -7,6 +7,7 @@ import { addCandy,hide,show } from './cart';
 const candyListEl = document.querySelector("#candy-list")!;
 const cartModal = document.querySelector('#cartModal');
 const cartModalContent = document.querySelector('.cart-modal-content');
+const totStock = document.querySelector('#totStock')!;
 
 // get reference to sort btn
 const sortBtn = document.querySelector("#sortBtn");
@@ -30,10 +31,12 @@ const stockCandy = products.reduce( (acc, candy ) => {
   return acc
 },0)
 
+totStock.innerHTML = `<p id="totCandy">Candys in stock: ${stockCandy}/${products.length}st</p>`;
 
 
-//att denna kod nedanför skall köras om allt finns på lager.
-// om stock quantity är null, candy stockstatus "outofstock", skall add to cart btn vara disabled, samt candy stock quantity EJ visas.
+
+
+
 
 
 // renders all products as cards on the DOM
@@ -50,7 +53,8 @@ const renderAllCandy = () => {
         <p class="candy-name" id="candy-name">${candy.name}</p>
         <p class="candy-price" id="candy-price">${candy.price}kr</p>
         <p class="candy-stockstatus" id="candy-stockstatus">${candy.stock_status}</p>
-        <button class="btn-addToCart" id="btn-addToCart" disabled>Add to cart</button>
+        <br>
+        <button class="btn-addToCart" id="btn-addToCart2" disabled>Out of stock</button>
       </li>
     `
     }
@@ -128,6 +132,9 @@ document.querySelector(".lightbox")?.addEventListener("click", e => {
     target.classList.add("hide");
   }
 });
+
+
+
 
 
 // listen after click on sortBtn, then sort all candy alpabetically

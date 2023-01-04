@@ -11,9 +11,10 @@
 
 .cart-modal-content {
     background-color: #fefefe;
-    width: 25%;
+    width: 40%;
     float: right;
     height: 100%;
+    position: relative;
 }
 
 .display-none {
@@ -41,16 +42,36 @@
     width: 100px;
     height: 100px;
     margin-right: 8px;
+    margin-left: 10px;
 }
 
 .cart-item-info {
     display: inline-block;
     vertical-align: top;
-    margin-top: 32px;
+    margin-top: 5px;
+    font-family: 'Roboto', sans-serif;
 
 }
 
 .cart-item {
     margin: 4px 0px;
     border-bottom: 1px solid lightgray;
+}
+
+#cartTitle {
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+#GoToCheckout {
+    font-family: 'Roboto', sans-serif;
+    position: absolute;
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+    top:95%;
+    left: 10px;
+    text-decoration: none;
+    
 }

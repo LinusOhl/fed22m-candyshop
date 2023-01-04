@@ -10,31 +10,27 @@ body {
     display: none;
   }
   
-  header {
-    background-color: rgb(235, 250, 255);
-    box-sizing: border-box;
-    position: sticky;
-    border: 4px solid rgb(100, 169, 215);
-    width: 100%;
-    height: 100px;
-  }
+ 
 
   #checkoutHeader {
-    font-family: 'Roboto', sans-serif;
-    font-size: 35px;
-    text-transform: uppercase;
-    text-align: center;
-    font-weight: 600;
-    padding-top: 22px;
-    color: rgb(255, 200, 230);
-    background-color: rgb(235, 250, 255);
-    text-shadow: 2px 2px #99a6b8;
+  font-size: 40px;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  color: rgb(106, 193, 247);
+  background-color: rgb(235, 250, 255);
+  text-shadow: 2px 2px #e5d2d9;
+  margin: auto;
+  padding-top: 40px;
+  padding-bottom: 30px;
+  border: 5px solid rgb(100, 169, 215);
   }
 
   #wholeCheckout {
     box-sizing: border-box;
-    border: 4px solid pink;
-    height: 100vh;
+    border: 5px solid rgba(105, 177, 225, 0.466);
+    height: 100%;
   }  
 
   .shopppingCart {
@@ -46,14 +42,14 @@ body {
   #orderInfo {
     display: inline-block;
     box-sizing: border-box;
-    border: 2px solid rgb(218, 126, 175);
+    
     height: 459px;
   }
 
   #checkoutCart {
     display: inline-block;
     box-sizing: border-box;
-    border: 2px solid rgb(218, 126, 175);
+    border: 2px solid rgba(181, 181, 181, 0.466);
     width: 100%;
     height: 200px;
   }
