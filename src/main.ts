@@ -7,6 +7,7 @@ import { addCandy,hide,show } from './cart';
 const candyListEl = document.querySelector("#candy-list")!;
 const cartModal = document.querySelector('#cartModal');
 const cartModalContent = document.querySelector('.cart-modal-content');
+const totStock = document.querySelector('#totStock')!;
 
 // get reference to sort btn
 const sortBtn = document.querySelector("#sortBtn");
@@ -29,6 +30,13 @@ const stockCandy = products.reduce( (acc, candy ) => {
   }
   return acc
 },0)
+
+totStock.innerHTML = `<p id="totCandy">Candys in stock: ${stockCandy}/${products.length}st</p>`;
+
+
+
+
+
 
 
 // renders all products as cards on the DOM
@@ -124,6 +132,9 @@ document.querySelector(".lightbox")?.addEventListener("click", e => {
     target.classList.add("hide");
   }
 });
+
+
+
 
 
 // listen after click on sortBtn, then sort all candy alpabetically
