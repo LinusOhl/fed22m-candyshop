@@ -3,7 +3,7 @@
    const cartModal = document.querySelector("#cartModal")
    const base_url = "https://www.bortakvall.se";
    const cartListEl = document.querySelector("#cart-list")!;
-   const cartItems: ICandy[] = [];
+   let cartItems: ICandy[] = JSON.parse(localStorage.getItem("cartList")!);
    const checkoutCartlistEl = document.querySelector("#checkout-cartlist")!;
    
    
@@ -132,7 +132,8 @@
     });
   });
 }
-export const renderCartForCheckOut = () => {
+export const renderCartForCheckOut = () => { 
+  let cartItems: ICandy[] = JSON.parse(localStorage.getItem("cartList")!);
   const candyQuantityMap = new Map();
   cartItems.forEach(candy => {
     if(candyQuantityMap.has(candy.id)){
