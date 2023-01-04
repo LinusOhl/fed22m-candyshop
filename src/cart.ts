@@ -3,17 +3,23 @@
    const cartModal = document.querySelector("#cartModal")
    const base_url = "https://www.bortakvall.se";
    const cartListEl = document.querySelector("#cart-list")!;
-   let cartItems: ICandy[] = JSON.parse(localStorage.getItem("cartList")!);
+  
+  let cartItems: ICandy[] = localStorage.getItem("cartList") ? JSON.parse(localStorage.getItem("cartList")!) : [];
+  /* if (localStorage.getItem("cartList")) {
+    cartItems = JSON.parse(localStorage.getItem("cartList"))
+  } else {
+    cartItems = []
+  } */
+
    const checkoutCartlistEl = document.querySelector("#checkout-cartlist")!;
    
    
   
 
-    export const addCandy = (item: ICandy) => {
-      cartItems.push(item);
-
-      // save cartList to localstorage
-      localStorage.setItem("cartList", JSON.stringify(cartItems));
+export const addCandy = (item: ICandy) => {
+  cartItems.push(item);
+  // save cartList to localstorage
+  localStorage.setItem("cartList", JSON.stringify(cartItems));
     }
 
     const removeCandy = (item: ICandy) => {
@@ -21,7 +27,6 @@
       if (index >= 0) {
         cartItems.splice(index, 1);
       }   
-
       // save cartList to localstorage
       localStorage.setItem("cartList", JSON.stringify(cartItems));
     }
@@ -31,7 +36,9 @@
       while (index !== -1) {
       cartItems.splice(index, 1);
       index = cartItems.indexOf(item);
-    }  }  
+      }
+      localStorage.setItem("cartList", JSON.stringify(cartItems));
+    }  
    
     const getTotal = () => {
       let total = 0;
@@ -50,23 +57,25 @@
       cartModal?.classList.add("display-none")
     }
 
-  const renderCart = () => {
-    const candyQuantityMap = new Map();
-    cartItems.forEach(candy => {
-      if(candyQuantityMap.has(candy.id)){
-        let quantity = candyQuantityMap.get(candy.id) ;
-        quantity ++
-        candyQuantityMap.set(candy.id, quantity);
-      } else {
-        candyQuantityMap.set(candy.id, 1);
-      }
-    });
-    const totalCostElement = document.querySelector("#total-cost")
-    totalCostElement!.innerHTML="Total cost : "+getTotal()+" kr"
+const renderCart = () => {
+  const candyQuantityMap = new Map();
+  cartItems.forEach(candy => {
+    if (candyQuantityMap.has(candy.id)) {
+      let quantity = candyQuantityMap.get(candy.id);
+      quantity++
+      candyQuantityMap.set(candy.id, quantity);
+    } else {
+      candyQuantityMap.set(candy.id, 1);
+    }
+  });
+
+  const totalCostElement = document.querySelector("#total-cost")
+  totalCostElement!.innerHTML = "Total cost : " + getTotal() + " kr"
     
-    let set = new Set(cartItems);
-    let cartItemsTemp = Array.from(set);
-    cartListEl.innerHTML = cartItemsTemp.map(candy => `
+  // remove duplicates in an array of objects
+  let uniqueCartItems = cartItems.filter((v,i,a) => a.findIndex(v2 =>(v2.id === v.id)) === i)
+
+    cartListEl.innerHTML = uniqueCartItems.map(candy => `
     <li class="cart-item">
     <i class="fa-regular fa-trash-can trash-icon" id="trash-icon" data-candy-id="${candy.id}"></i>
     <img class="cart-item-img" src="${base_url + candy.images.thumbnail}" alt="${candy.name}">
