@@ -17,21 +17,25 @@ const sortBtn = document.querySelector("#sortBtn")!;
 const base_url = "https://www.bortakvall.se";
 
 // save data of products from api as an array
-const temp = await fetchAllCandy();
-const products: ICandy[] = temp.data;
+let products: ICandy[] = [];
+const getAllCandy = async () => {
+  const temp = await fetchAllCandy();
+  products = temp.data;
 
-
-
-// hur mycket som finns instock av allt godis tex 40/127 i lager,
-// kvarstår att rendera ut hur många produkter som finns i lager
-const stockCandy = products.reduce( (acc, candy ) => {
-  if(candy.stock_quantity !== null){
-    return acc + 1
-  }
-  return acc
-},0)
+  // hur mycket som finns instock av allt godis tex 40/127 i lager,
+  // kvarstår att rendera ut hur många produkter som finns i lager
+  const stockCandy = products.reduce( (acc, candy ) => {
+    if(candy.stock_quantity !== null){
+      return acc + 1
+    }
+    return acc
+  },0)
 
 totStock.innerHTML = `<p id="totCandy">Candies in stock: ${stockCandy}/${products.length}st</p>`;
+
+  renderAllCandy();
+}
+getAllCandy();
 
 
 
