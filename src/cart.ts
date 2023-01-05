@@ -126,7 +126,7 @@ const renderCart = () => {
       cost.innerHTML=num.toString()+" kr"
     });
     const totalCostElement = document.querySelector("#total-cost")
-    totalCostElement!.innerHTML="Total cost : "+getTotal()+" kr"
+    totalCostElement!.innerHTML="Total cost: "+getTotal()+" kr"
 
     const trashIcon = Array.from(document.querySelectorAll("#trash-icon"))
     trashIcon.forEach((btn) => {
