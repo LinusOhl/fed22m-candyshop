@@ -16,8 +16,6 @@ header {
   width: 100%;
 }
 
-
-
 .mainHeader {
   font-size: 40px;
   text-align: center;
@@ -42,7 +40,6 @@ header {
   box-sizing: border-box;
   border: 5px solid rgba(105, 177, 225, 0.466);
   background-color: rgb(255, 255, 255);
-  
 }
 
 .cart-box {
@@ -50,7 +47,6 @@ header {
   float: right;
   right: 10px;
   top: 18px;
-  
 }
 
 #sortBtn {
@@ -63,9 +59,7 @@ header {
   top: 140px;
   padding-left: 10px;
   border: 1px solid white;
-
 }
-
 
 #underRubrik {
   text-align: center;
@@ -91,10 +85,10 @@ header {
   box-sizing: border-box;
   height: 100vh;
   display: relative;
-  
   margin: auto;
   padding: 0;
 }
+
 
 @media (min-width: 480px) {
 
@@ -131,7 +125,6 @@ header {
     top: 170px;
     float: left;
     border: 1px solid white;
-  
   }
 
   .cart-box {
@@ -142,8 +135,8 @@ header {
   }
 
   #allCandyDisplay {
-
     border: 8px solid rgba(105, 177, 225, 0.466);
+}
 }
 
 
@@ -180,16 +173,7 @@ header {
   
 
   #allCandyDisplay {
-    
     border: 10px solid rgba(105, 177, 225, 0.466);
 }
 
- 
-
 }
-
-
-
-
-
-

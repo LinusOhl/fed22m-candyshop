@@ -13,7 +13,6 @@
     background-color: #fefefe;
     width: 40%;
     float: right;
-    height: 100%;
     position: relative;
 }
 
@@ -50,6 +49,7 @@
     vertical-align: top;
     margin-top: 5px;
     font-family: 'Roboto', sans-serif;
+    padding-left: 5px;
 
 }
 
@@ -66,15 +66,29 @@
 
 #GoToCheckout {
     font-family: 'Roboto', sans-serif;
+    padding: 9px;
+    font-size: 15px;
     position: absolute;
     background-color: white;
-    color: black;
     border: 2px solid #4CAF50;
-    top:95%;
-    left: 10px;
-    text-decoration: none;
-    
+    bottom: 2px;
+    right: 5px;
+    cursor: pointer;
 }
+
+#GoToCheckout:hover {
+    background-color: #4CAF50;
+}
+
+#GoToCheckout a {
+    text-decoration: none;
+    color: black;
+}
+
+
+#GoToCheckout a:hover {
+    color: white;
+    }
 
 #minus, #plus {
     display: block;
@@ -85,4 +99,48 @@
     font-size: 1rem;
     cursor: pointer;
     border: 2px solid;
+}
+.total-cost {
+    font-family: 'Roboto', sans-serif;
+    position: absolute;
+    bottom: 2px;
+    right: 23%;
+    
+}
+
+.trash-icon {
+    float: right;
+    margin-right: 16px;
+}
+
+#total-cost-per-item {
+    text-align: right;
+    margin-right: 16px;
+}
+
+.add-remove-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.add, .remove{
+    border: 1px solid grey;
+    padding: 8px;
+    width: 8px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.add-remove {
+    line-height: 37px;
+}
+
+.item-price {
+    margin-top:10px
+}
+
+ul {
+    list-style-type: none;
 }
