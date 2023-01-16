@@ -40,7 +40,7 @@ export const addCandy = (item: ICandy) => {
       localStorage.setItem("cartList", JSON.stringify(cartItems));
     }  
    
-    const getTotal = () => {
+    export const getTotal = () => {
       let total = 0;
       for (const item of cartItems) {
         total += item.price;
@@ -126,7 +126,7 @@ const renderCart = () => {
       cost.innerHTML=num.toString()+" kr"
     });
     const totalCostElement = document.querySelector("#total-cost")
-    totalCostElement!.innerHTML="Total cost: "+getTotal()+" kr"
+    totalCostElement!.innerHTML = "Total cost : " + getTotal() + " kr"
 
     const trashIcon = Array.from(document.querySelectorAll("#trash-icon"))
     trashIcon.forEach((btn) => {
@@ -142,8 +142,9 @@ const renderCart = () => {
   });
 }
 export const renderCartForCheckOut = () => { 
-  let cartItems: ICandy[] = JSON.parse(localStorage.getItem("cartList")!);
+  cartItems = JSON.parse(localStorage.getItem("cartList")!);
   const candyQuantityMap = new Map();
+  const candyMap = new Map();
   cartItems.forEach(candy => {
     if(candyQuantityMap.has(candy.id)){
       let quantity = candyQuantityMap.get(candy.id) ;
@@ -152,11 +153,11 @@ export const renderCartForCheckOut = () => {
     } else {
       candyQuantityMap.set(candy.id, 1);
     }
+    candyMap.set(candy.id, candy);
   });
-  console.log("test")
-  console.log(cartItems)
-  let set = new Set(cartItems);
-  let cartItemsTemp = Array.from(set);
+  let cartItemsTemp = Array.from( candyMap.values () );
+  const totalCostElement = document.querySelector("#total-cost-checkout")
+  totalCostElement!.innerHTML = "Total cost : " + getTotal() + " kr"
   checkoutCartlistEl.innerHTML = cartItemsTemp.map(candy => `
   <li class="cart-item">
   <i class="fa-regular fa-trash-can trash-icon" id="trash-icon" data-candy-id="${candy.id}"></i>
@@ -182,7 +183,7 @@ decreaseBtn.forEach((btn) => {
       return candy.id === candyId
     }) 
     removeCandy(extractedCandy!)
-    renderCart()
+    renderCartForCheckOut()
   console.log("decreaseBtn")
   });
 });
@@ -194,7 +195,7 @@ increaseBtn.forEach((btn) => {
       return candy.id === candyId
     }) 
     addCandy(extractedCandy!)
-    renderCart()
+    renderCartForCheckOut()
   console.log("increaseBtn")
   });
   const costPerItem = Array.from(document.querySelectorAll("#total-cost-per-item"))
@@ -216,7 +217,7 @@ increaseBtn.forEach((btn) => {
         return candy.id === candyId
       }) 
       removeAllCandySort(extractedCandy!)
-      renderCart()
+      renderCartForCheckOut()
     });
   });
 });

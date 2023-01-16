@@ -1,7 +1,7 @@
 import { createOrder } from "./api";
 import { ICandy, IOrder } from "./interfaces";
 import { IOrderItem } from "./interfaces";
-import {renderCartForCheckOut} from "./cart";
+import {renderCartForCheckOut, getTotal} from "./cart";
 
 // form DOM-elements
 const orderForm = document.querySelector("#new-order-form")!;
